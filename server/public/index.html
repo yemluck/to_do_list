@@ -2,15 +2,12 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>To-Do App</title>
     <script type="text/javascript" src="scripts/jquery.js"></script>
     <script type="text/javascript" src="scripts/client.js"></script>
-    <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"> -->
+   <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
+        integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous"> -->
     <link rel="stylesheet" href="css/styles.css">
-    
 </head>
 <body>
     <header>
@@ -18,25 +15,38 @@
     </header>
     <form>
         <!--<input type="checkbox" placeholder="Status"> -->
-        <input type="text" placeholder="Enter task" size="50" required>
-        <input type="date" placeholder="Date">
-        <select id="priority">
+        <input type="text" id="taskId" placeholder="Enter task" size="50" required>
+        <input type="date" id="dateId" placeholder="Date" >
+        <select id="priorityId">
             <option>High Priority</option>
             <option>Mid Priority</option>
             <option>Low Priority</option>
         </select>
-        <input type="submit" value="Set task">
+        <input type="submit" id="submitId" value="Set task">
     </form>
     <div class="quote">
         <h3>Make no little plans; they have no magic to stir men’s blood – make big plans, aim high in hope and work.</h3>
     </div>
-    <div class="divTable">
-
+    <div>
+        <h2> <u>To-Do List</u></h2>
     </div>
+    <div class="divTable"></div>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Tasks</th>
+                    <th>Priority</th>
+                    <th>Date-to-complete</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody id="tableBody">
+            </tbody>
+        </table>
+    </div>
+    
     <footer>
-        <p>Author: Chris Agbolade |
-            <a href="mailto:hege@example.com">yemluck@gmail.com</a>
-        </p>
+        <p>Author: Chris Agbolade | <a href="mailto:hege@example.com">yemluck@gmail.com</a></p>
     </footer>
 </body>
 </html>

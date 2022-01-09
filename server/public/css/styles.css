@@ -5,17 +5,21 @@ h1 {
 }
 
 body {
-    background-color: grey;
-    margin: 25px;
-    background: lightblue url(../pic2.jpeg);
+    
+    margin: 5px 50px 5px;
+    background: url(../pic2.jpeg);
     background-size: cover;
     background-repeat: no-repeat;
 }
 
 form {
+    margin: 25px;
     text-align: center;
 }
 
+h2 {
+    text-align: center;
+}
 .quote {
     color: lightblue;
     background-color: black;
@@ -28,3 +32,4 @@ footer {
     bottom: 0;
     text-align: center;
 }
+
