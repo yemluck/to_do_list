@@ -5,7 +5,8 @@ function onReady(){
     console.log('jQuery loaded');
     $('#submitId').on('click', sendTask);
     getTask()
-    $(document).on('click', '.deleteButton',deleteTask)
+    $(document).on('click', '.deleteButton',deleteTask);
+    $(document).on('click', '.statusButton', taskComplete)
 
 
 }// end function onREady
@@ -56,7 +57,8 @@ function renderTask(data){
             <td>${todo.priority}</td>
             <td>${todo.date}</td>
             <td><button class="statusButton">Completed</button><td>
-            <td><button class="deleteButton">Remove</button><td>
+            <td><button class="deleteButton">Remove</button></td>
+            <td>${todo.completion_status}</td>
         </tr>
     `)
     }
@@ -96,3 +98,22 @@ function deleteTask(){
              console.log('DELETE failed', err);
          })
 } // end function deleteTask
+
+function taskComplete (){
+    //console.log('in taskComplete');
+    let taskId = $(this).parents('tr').data('id');
+    let complete = true;
+    $.ajax({
+        method: 'PUT',
+        url: `/todo/${taskId}`,
+        data: {status: complete}
+    })
+    .then(() => {
+        console.log('PUT success');
+        // Rerender with our new state
+        getTask()
+    })
+    .catch((err) => {
+        console.log('PUT failed', err);
+    })
+} // end function taskComplete

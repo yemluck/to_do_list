@@ -45,6 +45,31 @@ router.post('/', (req,res) => {
 
 // PUT ... update a task to show it has been completed
 
+router.put('/:Id', (req, res) => {
+    console.log('task Id is', req.params.Id);
+    console.log('req.body', req.body);
+
+    let queryText = `
+        UPDATE todo
+        SET "completion_status" = $1
+        WHERE "id" = $2
+    `;
+
+    let queryParams = [
+        req.body.status,        //$1
+        req.params.Id           //$2
+    ]
+    
+    pool.query(queryText, queryParams)
+        .then(() => {
+            res.sendStatus(204);
+        })
+        .catch((err) => {
+            console.log('PUT /todo failed', err);
+            res.sendStatus(500)
+            
+        })
+})
 
 
 
