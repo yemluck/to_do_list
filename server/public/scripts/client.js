@@ -5,6 +5,7 @@ function onReady(){
     console.log('jQuery loaded');
     $('#submitId').on('click', sendTask);
     getTask()
+    $(document).on('click', '.deleteButton',deleteTask)
 
 
 }// end function onREady
@@ -54,7 +55,8 @@ function renderTask(data){
             <td>${todo.task}</td>
             <td>${todo.priority}</td>
             <td>${todo.date}</td>
-            <td><button class="statusButton">Completed</button>
+            <td><button class="statusButton">Completed</button><td>
+            <td><button class="deleteButton">Remove</button><td>
         </tr>
     `)
     }
@@ -75,3 +77,22 @@ function getTask(){
         console.log('error in GET', error)
     })
 } // end function getTask
+
+function deleteTask(){
+    let taskId = $(this).parents('tr').data('id')
+    console.log('in deleteTask', taskId);
+
+    // Delete the task by Id
+    $.ajax({
+        method: 'DELETE',
+        url: `/todo/${taskId}`
+    })
+        .then((res) => {
+            console.log('DELETE success');
+            // Rerender with our new state
+            getTask();
+        })
+         .catch((err) => {
+             console.log('DELETE failed', err);
+         })
+} // end function deleteTask

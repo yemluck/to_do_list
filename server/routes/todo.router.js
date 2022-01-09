@@ -50,6 +50,27 @@ router.post('/', (req,res) => {
 
 // DELETE ... Remove a task when delete button is pressed after completion
 
+router.delete('/:id', (req, res) => {
+    // Grab the URL parameter
+    console.log('id is', req.params.id);
+
+    let queryText = `
+    DELETE FROM todo
+    WHERE id=$1;
+    `;
+    
+    let queryParams = [
+        req.params.id   //$1
+    ];
+
+    pool.query(queryText, queryParams)
+        .then((dbRes) => {
+            res.sendStatus(204);
+        })
+        .catch((err) => {
+            console.log('DELETE /todo failed', err);
+        })
+}) // end router.delete
 
 
 
