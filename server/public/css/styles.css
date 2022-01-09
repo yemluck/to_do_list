@@ -1,5 +1,5 @@
 h1 {
-    color: white;
+    color: lightcyan;
     background-color: black;
     text-align: center;
 }
@@ -7,5 +7,24 @@ h1 {
 body {
     background-color: grey;
     margin: 25px;
+    background: lightblue url(../pic2.jpeg);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
 
+form {
+    text-align: center;
+}
+
+.quote {
+    color: lightblue;
+    background-color: black;
+    text-align: center;
+    
+}
+
+footer {
+    position: fixed;
+    bottom: 0;
+    text-align: center;
 }
