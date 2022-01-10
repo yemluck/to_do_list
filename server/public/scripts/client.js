@@ -7,6 +7,7 @@ function onReady(){
     getTask()
     $(document).on('click', '.deleteButton',deleteTask);
     $(document).on('click', '.statusButton', taskComplete)
+    $(document).on('click', '.tableRow', colorChange)
 
 
 }// end function onREady
@@ -52,7 +53,7 @@ function renderTask(data){
     for(let i = 0; i < data.length; i++){
         let todo=data[i]
     $('#tableBody').append(`
-        <tr data-id="${todo.id}">
+        <tr data-id="${todo.id}" class="tableRow">
             <td>${todo.task}</td>
             <td>${todo.priority}</td>
             <td>${todo.date}</td>
@@ -61,6 +62,7 @@ function renderTask(data){
             <td>${todo.completion_status}</td>
         </tr>
     `)
+        $(this).parents('tr').css("background", "green")
     }
 } // end function renderTask
 
@@ -102,6 +104,7 @@ function deleteTask(){
 function taskComplete (){
     //console.log('in taskComplete');
     let taskId = $(this).parents('tr').data('id');
+    $(this).parents('tr').css("background", "green")
     let complete = true;
     $.ajax({
         method: 'PUT',
@@ -111,9 +114,15 @@ function taskComplete (){
     .then(() => {
         console.log('PUT success');
         // Rerender with our new state
-        getTask()
+        getTask();
+        colorChange()
     })
     .catch((err) => {
         console.log('PUT failed', err);
     })
 } // end function taskComplete
+
+
+function colorChange (){
+    $(this).parents('tr').css("background", "green")
+} // end function colorChange
