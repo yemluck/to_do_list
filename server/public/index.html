@@ -5,8 +5,8 @@
     <title>To-Do App</title>
     <script type="text/javascript" src="scripts/jquery.js"></script>
     <script type="text/javascript" src="scripts/client.js"></script>
-   <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
-        integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous"> -->
+   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
+        integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous"> 
     <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
@@ -31,15 +31,14 @@
         <h2> <u>To-Do List</u></h2>
     </div>
     <div class="divTable"></div>
-        <table class="table">
-            <thead>
+        <table class="table table-bordered table-hover">
+            <thead class="thead-dark"> 
                 <tr>
                     <th>Tasks</th>
                     <th>Priority</th>
                     <th>Deadline</th>
                     <th>Mark Completed</th>
                     <th></th>
-                    <th>Status</th>
                 </tr>
             </thead>
             <tbody id="tableBody">

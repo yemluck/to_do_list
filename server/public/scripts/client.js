@@ -57,9 +57,8 @@ function renderTask(data){
             <td>${todo.task}</td>
             <td>${todo.priority}</td>
             <td>${todo.date}</td>
-            <td><button class="statusButton">Completed</button><td>
-            <td><button class="deleteButton">Remove</button></td>
-            <td>${todo.completion_status}</td>
+            <td><button class="statusButton">✅</button></td>
+            <td><button class="deleteButton">❌</button></td>
         </tr>
     `)
         $(this).parents('tr').css("background", "green")

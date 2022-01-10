@@ -6,7 +6,7 @@ const pool = require('../modules/pool');
 // GET all todo lists
 
 router.get('/', (req, res) => {
-    let queryText = 'SELECT * FROM todo';
+    let queryText = 'SELECT * FROM todo ORDER BY "id"';
     pool.query(queryText).then(result => {
         // sends back the results in an object
         res.send(result.rows);
