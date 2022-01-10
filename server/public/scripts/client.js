@@ -53,7 +53,7 @@ function renderTask(data){
     for(let i = 0; i < data.length; i++){
         let todo=data[i]
     $('#tableBody').append(`
-        <tr data-id="${todo.id}" class="tableRow">
+        <tr data-id="${todo.id}" class="row${todo.completion_status}">
             <td>${todo.task}</td>
             <td>${todo.priority}</td>
             <td>${todo.date}</td>
